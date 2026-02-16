@@ -1,8 +1,8 @@
-"""Add Place model
+"""Add embedding column to places
 
-Revision ID: fb340972253f
+Revision ID: 0831b2d9d585
 Revises: 
-Create Date: 2026-02-16 13:26:00.609593
+Create Date: 2026-02-16 22:51:21.310174
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'fb340972253f'
+revision: str = '0831b2d9d585'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None

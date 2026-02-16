@@ -27,6 +27,7 @@ class Place(Base):
     description = Column(Text, nullable=False)
     city = Column(String(100), nullable=False, index=True)
     category = Column(String(50), nullable=False, index=True)
+    embedding = Column(String, nullable=True)
 
     def __repr__(self) -> str:
         """

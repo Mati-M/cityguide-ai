@@ -8,6 +8,7 @@ from enum import Enum
 
 from fastapi import FastAPI
 
+from app.api.endpoints import places
 from config import settings
 
 
@@ -16,7 +17,7 @@ class Environment(str, Enum):
     production = "production"
 
 
-environment = Environment
+environment = Environment(settings.environment)
 
 # Initialize FastAPI application
 app = FastAPI(
@@ -25,6 +26,9 @@ app = FastAPI(
     version="0.1.0",
     debug=(settings.environment == environment.development),
 )
+
+# Register routers
+app.include_router(places.router, prefix="/api/v1", tags=["places"])
 
 
 @app.get("/")

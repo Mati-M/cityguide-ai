@@ -15,15 +15,19 @@ class Settings(BaseSettings):
     Automatically reads variables from .env file.
 
     Attributes:
-        openai_api_key: API key for OpenAI services
         environment: Runtime environment (development/production)
+        database_url: PostgreSQL connection string
+        openai_api_key: API key for OpenAI services
     """
-
-    # OpenAI (placeholder for now - will be used later)
-    openai_api_key: str
 
     # Runtime environment
     environment: str = "development"
+
+    # Database
+    database_url: str
+
+    # OpenAI
+    openai_api_key: str
 
     # Pydantic configuration
     model_config = SettingsConfigDict(

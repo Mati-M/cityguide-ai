@@ -4,15 +4,26 @@ Main module of the CityGuide AI application.
 Initializes FastAPI application and defines endpoints.
 """
 
+from enum import Enum
+
 from fastapi import FastAPI
+
 from config import settings
+
+
+class Environment(str, Enum):
+    development = "development"
+    production = "production"
+
+
+environment = Environment
 
 # Initialize FastAPI application
 app = FastAPI(
     title="CityGuide AI",
     description="Intelligent city guide powered by AI",
     version="0.1.0",
-    debug=(settings.environment == "development"),
+    debug=(settings.environment == environment.development),
 )
 
 

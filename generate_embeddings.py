@@ -11,7 +11,6 @@ from app.db.session import SessionLocal
 from app.models.place import Place
 from config import settings
 
-# Inicjalizacja OpenAI
 openai.api_key = settings.openai_api_key
 
 
@@ -52,8 +51,8 @@ def generate_all_embeddings():
             # Generuj embedding
             embedding = generate_embedding(text_to_embed)
 
-            # Zapisz w bazie (na razie jako string)
-            place.embedding = str(embedding)
+            # Zapisz w bazie
+            place.embedding = embedding
             db.commit()
 
             print(f"Done")
@@ -70,5 +69,6 @@ if __name__ == "__main__":
     # Sprawdź czy klucz API nie jest testowy
     if settings.openai_api_key == "sk-test":
         print("WARNING: Using test API key. Set real OPENAI_API_KEY in .env")
+        print("The embeddings will be empty. RAG won't work properly.")
     else:
         generate_all_embeddings()

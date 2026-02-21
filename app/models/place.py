@@ -4,7 +4,9 @@ Place model for the database.
 Represents a location in a city that users can ask about.
 """
 
+from pgvector.sqlalchemy import Vector
 from sqlalchemy import Column, Integer, String, Text
+
 from app.db.base import Base
 
 
@@ -18,6 +20,7 @@ class Place(Base):
         description: Detailed description of the place
         city: City name (e.g., "Opole", "Wrocław")
         category: Type of place (e.g., "monument", "cafe", "park")
+        embedding: Vector representation of the place description (for RAG)
     """
 
     __tablename__ = "places"
@@ -27,7 +30,7 @@ class Place(Base):
     description = Column(Text, nullable=False)
     city = Column(String(100), nullable=False, index=True)
     category = Column(String(50), nullable=False, index=True)
-    embedding = Column(String, nullable=True)
+    embedding = Column(Vector(1536), nullable=True)
 
     def __repr__(self) -> str:
         """

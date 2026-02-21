@@ -8,7 +8,7 @@ from enum import Enum
 
 from fastapi import FastAPI
 
-from app.api.endpoints import places
+from app.api.endpoints import ask, places
 from config import settings
 
 
@@ -29,6 +29,7 @@ app = FastAPI(
 
 # Register routers
 app.include_router(places.router, prefix="/api/v1", tags=["places"])
+app.include_router(ask.router, prefix="/api/v1", tags=["ask"])
 
 
 @app.get("/")

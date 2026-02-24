@@ -21,6 +21,7 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade():
+    op.execute("CREATE EXTENSION IF NOT EXISTS vector")
     op.add_column(
         "places",
         sa.Column(

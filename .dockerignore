@@ -1,0 +1,34 @@
+# Virtual environment
+venv/
+.venv/
+
+# Configuration files with secrets
+.env
+.env.*
+
+# Python directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Alembic (code only, no instances)
+alembic/versions/__pycache__/
+
+# Temporary files
+*.log
+*.bak
+*.swp

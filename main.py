@@ -41,7 +41,7 @@ async def root() -> dict:
         dict: Welcome message and environment information
     """
     return {
-        "message": "CityGuide AI is running!",
+        "message": "Hello, CityGuide AI is running!",
         "environment": settings.environment,
     }
 

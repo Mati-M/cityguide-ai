@@ -7,9 +7,9 @@ on:
 env:
   AWS_REGION: eu-north-1
   ECR_REPOSITORY: cityguide-api
-  ECS_SERVICE: cityguide-task-service-ywvp2xwl
+  ECS_SERVICE: cityguide-task-service-yvwp2xwl
   ECS_CLUSTER: cityguide-cluster
-  ECS_TASK_DEFINITION: cityguide-task-3
+  ECS_TASK_DEFINITION: cityguide-task:3
   CONTAINER_NAME: cityguide-api
 
 jobs:
